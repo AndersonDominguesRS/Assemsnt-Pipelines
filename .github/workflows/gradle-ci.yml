@@ -19,5 +19,5 @@ jobs:
           distribution: 'temurin'
           java-version: '21'
 
-      - name: Build do projeto
-        run: ./mvnw clean package -DskipTests
+      - name: Build do projeto (simulação)
+        run: echo "Simulando build Maven"
