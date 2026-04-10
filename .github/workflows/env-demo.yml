@@ -1,0 +1,13 @@
+name: Env Demo
+
+on:
+  push:
+
+jobs:
+  show-env:
+    runs-on: ubuntu-latest
+    env:
+      DEPLOY_ENV: staging
+    steps:
+      - name: Mostrar variável de ambiente
+        run: echo "Anbiente de deploy: $DEPLOY_ENV"
