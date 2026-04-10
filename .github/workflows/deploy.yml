@@ -1,0 +1,29 @@
+name: Deploy
+
+on:
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Executar testes
+        run: echo "Testes executados com sucesso"
+
+  deploy:
+    needs: test
+    runs-on: ubuntu-latest
+    environment:
+      name: production
+      url: ${{ vars.PROD_DOMAIN }}
+
+    steps:
+      - name: Validar variável obrigatória
+        run: |
+          if [ -z "${{ vars.PROD_DOMAIN }}" ]; then
+            echo "::error::A variável PROD_DOMAIN não está configurada"
+            exit 1
+          fi
+
+      - name: Deploy
+        run: echo "Deploy realizado para ${{ vars.PROD_DOMAIN }}"
