@@ -1,0 +1,21 @@
+name: Logs Avançados
+
+on:
+  push:
+
+jobs:
+  logs:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Mensagens de aviso e erro
+        run: |
+          echo "::warning::Este é um aviso"
+          echo "::error::Este é um erro simulado"
+
+      - name: Validar variável obrigatória
+        run: |
+          if [ -z "${{ vars.TESTE_VAR }}" ]; then
+            echo "::error::A variável TESTE_VAR não está definida"
+            exit 1
+          fi
