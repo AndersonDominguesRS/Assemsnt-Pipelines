@@ -8,6 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       DEPLOY_ENV: staging
+
     steps:
       - name: Mostrar variável de ambiente
-        run: echo "Anbiente de deploy: $DEPLOY_ENV"
+        run: echo "Ambiente de deploy: $DEPLOY_ENV"
